@@ -1,0 +1,74 @@
+{
+	"name": "CDCImport",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy data1",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "JsonSource",
+						"storeSettings": {
+							"type": "AzureBlobFSReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "JsonReadSettings"
+						}
+					},
+					"sink": {
+						"type": "JsonSink",
+						"storeSettings": {
+							"type": "AzureBlobFSWriteSettings"
+						},
+						"formatSettings": {
+							"type": "JsonWriteSettings"
+						}
+					},
+					"enableStaging": false
+				},
+				"inputs": [
+					{
+						"referenceName": "json_dynamic",
+						"type": "DatasetReference",
+						"parameters": {
+							"container": "bronze",
+							"folder": "cdcfolder",
+							"file": "cdc.json"
+						}
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "json_dynamic",
+						"type": "DatasetReference",
+						"parameters": {
+							"container": "bronze",
+							"folder": "cdcfolder",
+							"file": {
+								"value": "@concat(pipeline().parameters.tablee,'cdc.json')",
+								"type": "Expression"
+							}
+						}
+					}
+				]
+			}
+		],
+		"parameters": {
+			"tablee": {
+				"type": "string"
+			}
+		},
+		"annotations": []
+	}
+}
