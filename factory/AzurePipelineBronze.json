@@ -1,0 +1,9 @@
+{
+	"name": "AzurePipelineBronze",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "b6a448c2-09d3-49da-b1c5-8a4a471ba489",
+		"tenantId": "8d281d1d-9c4d-4bf7-b16e-032d15de9f6c"
+	}
+}
