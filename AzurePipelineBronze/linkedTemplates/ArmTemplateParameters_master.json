@@ -1,0 +1,33 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "AzurePipelineBronze"
+		},
+		"ADLS_Connection_accountKey": {
+			"value": ""
+		},
+		"AzureSQL_Connection_password": {
+			"value": ""
+		},
+		"ADLS_Connection_properties_typeProperties_url": {
+			"value": "https://azureprojectstoragep.dfs.core.windows.net/"
+		},
+		"AzureSQL_Connection_properties_typeProperties_server": {
+			"value": "utsavsqlserver.database.windows.net"
+		},
+		"AzureSQL_Connection_properties_typeProperties_database": {
+			"value": "azure_project_database"
+		},
+		"AzureSQL_Connection_properties_typeProperties_userName": {
+			"value": "adminutsav"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
